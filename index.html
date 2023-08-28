@@ -1,28 +1,43 @@
 <html>
 
 <head>
-<title>App by Kamal Sir</title>
+<title>Square finder app</title>
+<style>
+	* {font-size:40px;}
+	body{background-color:lightblue;}
+</style>
 <script>
-	function find()
+function show(){
+	event.preventDefault();
+	let num = document.getElementById("num");
+	let ans = document.getElementById("ans");
+
+	if(num.value == "")
 	{
-		let d = new Date();
-		let day = d.getDay()
-				
-		if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5)
-			alert("WeekDAY");
-		else
-		alert("WeekEnd");
+	alert("Enter a number first");
+	ans.innerHTML = "";
+	num.focus();
+	return;
 	}
+	
+	let n = parseFloat(num.value);
+	let r = n * n;
+	let msg = "Square " + r.toFixed(2);
+	ans.innerHTML = msg;	
+}
 </script>
 
 </head>
-
 <body>
 <center>
-<form onsubmit="find()">
-	<input type="submit"/>
+<h1>Square Finder Application</h1>
+<form onsubmit="show()">
+<input type ="number" step="any" placeholder="enter eumber" id = "num"/>
+<br><br>
+<input type="submit" value="Find Square"/>
+<h2 id="ans" />
 </form>
 </center>
-
 </body>
+
 </html>
